@@ -1,0 +1,118 @@
+using System;
+
+namespace atm
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int user1, user2,user,secim,bakiyearti,bakiyeeksi;
+            basadon:
+            Console.WriteLine("Hosgeldiniz...");
+            Console.WriteLine("User1 icin 1, User2 icin 2 yaziniz...");
+            user = Convert.ToInt16(Console.ReadLine());
+
+            if(user == 1)
+            {
+                Console.WriteLine("User1 Hosgeldiniz...");
+                user1 = 1000;
+            menu:
+                Console.WriteLine("Bakiye ogrenmek icin 1");
+                Console.WriteLine("Para yatirmak icin 2");
+                Console.WriteLine("Para cekmek icin 3");
+                secim = Convert.ToInt16(Console.ReadLine());
+                if(secim == 1)
+                {
+                    Console.WriteLine("Bakiyeniz {0} TL'dir.", user1);
+                    Console.ReadLine();
+                    goto menu;
+                }
+                else if(secim == 2)
+                {
+                    Console.WriteLine("yatirmak istediginiz miktari giriniz:");
+                    bakiyearti = Convert.ToInt16(Console.ReadLine());
+                    user1 = user1 + bakiyearti;
+                    Console.WriteLine("Yeni bakiyeniz {0}", user1);
+                    Console.ReadLine();
+                    goto menu;
+                }
+                else if(secim == 3)
+                {
+                    Console.WriteLine("Cekmek istediginiz miktari giriniz:");
+                    bakiyeeksi = Convert.ToInt16(Console.ReadLine());
+                    if (bakiyeeksi > user1)
+                    {
+                        Console.WriteLine("Yeterli paraniz yoktur.");
+                        Console.ReadLine();
+                        goto menu;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Paranizi almayi unutmayin.");
+                        Console.ReadLine();
+                        user1 = user1 - bakiyeeksi;
+                        Console.WriteLine("Yeni bakiyeniz {0}", user1);
+                        Console.ReadLine();
+                        goto menu;
+                    }
+                }
+
+            }
+            else if(user == 2)
+            {
+                Console.WriteLine("User2 Hosgeldiniz...");
+                user2 = 2300;
+            menu:
+                
+                
+                Console.WriteLine("Bakiye ogrenmek icin 1");
+                Console.WriteLine("Para yatirmak icin 2");
+                Console.WriteLine("Para cekmek icin 3");
+                secim = Convert.ToInt16(Console.ReadLine());
+                if (secim == 1)
+                {
+                    Console.WriteLine("Bakiyeniz {0} TL'dir.", user2);
+                    Console.ReadLine();
+                    goto menu;
+                }
+                else if (secim == 2)
+                {
+                    Console.WriteLine("yatirmak istediginiz miktari giriniz:");
+                    bakiyearti = Convert.ToInt16(Console.ReadLine());
+                    user2 = user2 + bakiyearti;
+                    Console.WriteLine("Yeni bakiyeniz {0}", user2);
+                    Console.ReadLine();
+                    goto menu;
+                }
+                else if (secim == 3)
+                {
+                    Console.WriteLine("Cekmek istediginiz miktari giriniz:");
+                    bakiyeeksi = Convert.ToInt16(Console.ReadLine());
+                    if (bakiyeeksi > user2)
+                    {
+                        Console.WriteLine("Yeterli paraniz yoktur.");
+                        Console.ReadLine();
+                        goto menu;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Paranizi almayi unutmayin.");
+                        Console.ReadLine();
+                        user2 = user2 - bakiyeeksi;
+                        Console.WriteLine("Yeni bakiyeniz {0}", user2);
+                        Console.ReadLine();
+                        goto menu;
+                    }
+                }
+
+
+            }
+            else
+            {
+                Console.WriteLine("Lütfen 1 veya 2 yaziniz.");
+                Console.ReadLine();
+                goto basadon;
+            }
+        }
+    }
+}
